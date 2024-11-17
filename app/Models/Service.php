@@ -11,4 +11,10 @@ class Service extends Model
         'price',
         'barbershop_id'
     ];
+
+    protected $hidden = [
+        'barbershop_id',
+        'created_at',
+        'updated_at',
+    ];
 }

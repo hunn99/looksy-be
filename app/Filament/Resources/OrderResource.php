@@ -18,6 +18,8 @@ use Filament\Forms\Components\BelongsToSelect;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ViewAction;
+
 
 
 class OrderResource extends Resource
@@ -48,8 +50,8 @@ class OrderResource extends Resource
                         'declined' => 'Canceled',
                     ])
                     ->required(),
-                BelongsToSelect::make('user')
-                    ->label('Username')
+                BelongsToSelect::make('user_id')
+                    ->label('User')
                     ->relationship('user', 'username')
                     ->required(),
             ]);
@@ -97,6 +99,9 @@ class OrderResource extends Resource
                         $record->update(['status' => 'finished']);
                     })
                     ->visible(fn($record) => $record->status !== 'finished'), // Hanya tampil jika status bukan 'finished'
+
+                ViewAction::make()->label('View Details'),
+
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -114,6 +119,7 @@ class OrderResource extends Resource
     {
         return [
             'index' => Pages\ListOrders::route('/'),
+            'view' => Pages\ShowOrder::route('/{record}'),
         ];
     }
 }
