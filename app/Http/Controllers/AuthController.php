@@ -37,13 +37,18 @@ class AuthController extends Controller
                 'username' => $credentials['username'],
             ]);
 
+            // Generate token setelah user dibuat
+            $token = $newUser->createToken('authToken')->plainTextToken;
+
             DB::commit();
 
             return response()->json([
                 'message' => 'User registered successfully',
-                'user' => $newUser
+                'data' => [
+                    'user' => $newUser,
+                    'token' => $token,
+                ],
             ], 201);
-
         } catch (Exception $exception) {
             DB::rollBack();
             return response()->json(['error' => $exception->getMessage()], 500);
@@ -80,7 +85,7 @@ class AuthController extends Controller
         }
 
         // Jika login gagal
-        return response()->json(['error' => 'Email atau password salah'], 401);
+        return response()->json(['error' => 'Incorrect email or password'], 401);
     }
 
     public function logout(Request $request)
@@ -88,7 +93,7 @@ class AuthController extends Controller
         try {
             // Menghapus token dari pengguna saat ini
             $user = Auth::user();
-            $user->tokens->each(function($token) {
+            $user->tokens->each(function ($token) {
                 $token->delete();
             });
 
@@ -100,6 +105,4 @@ class AuthController extends Controller
             return response()->json(['error' => 'Logout failed: ' . $e->getMessage()], 500);
         }
     }
-
-    
 }
