@@ -15,6 +15,11 @@ class ServiceController extends Controller
     {
         try {
             $services = Service::select('id', 'name', 'price')->get(); // Ambil semua data dari tabel services
+            
+            if ($services->isEmpty()) {
+                return WebResponseUtils::base([], 'No services found', 200);
+            }
+            
             return WebResponseUtils::base($services, 'Services retrieved successfully', 200);
         } catch (Exception $exception) {
             return WebResponseUtils::base(null, 'Failed to get services', 500);
