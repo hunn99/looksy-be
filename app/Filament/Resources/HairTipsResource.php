@@ -27,6 +27,9 @@ class HairTipsResource extends Resource
                 TextInput::make('hair_type')
                     ->label('Hair Type')
                     ->required(),
+                TextInput::make('characteristic')
+                    ->label('Characteristic')
+                    ->required(),
                 TextInput::make('description')
                     ->label('Description')
                     ->required(),
@@ -45,6 +48,11 @@ class HairTipsResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Hair Type'),
+                TextColumn::make('characteristic')
+                    ->searchable()
+                    ->sortable()
+                    ->label('Characteristic')
+                    ->limit(50),
                 TextColumn::make('description')
                     ->searchable()
                     ->sortable()
