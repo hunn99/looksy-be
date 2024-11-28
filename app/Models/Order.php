@@ -31,4 +31,9 @@ class Order extends Model
     {
         return $this->belongsTo(Barbershop::class);
     }
+
+    public function services()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }

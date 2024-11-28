@@ -42,6 +42,7 @@ class OrderController extends Controller
                     'updated_at' => now(),
                 ]);
             }
+            $order->load('services.service');
 
             DB::commit();
             return WebResponseUtils::base($order, 'Order created successfully', 201);

@@ -21,13 +21,13 @@ class OrderSeeder extends Seeder
             'barbershop_id' => 1,
             'user_id' => 1,
         ]);
-        Order::create([
-            'order_date' => '2023-05-01',
-            'order_time' => '14:00',
-            'total_price' => 8000,
-            'status' => 'On Process',
-            'barbershop_id' => 1,
-            'user_id' => 1,
-        ]);
+        // Order::create([
+        //     'order_date' => '2023-05-01',
+        //     'order_time' => '14:00',
+        //     'total_price' => 8000,
+        //     'status' => 'On Process',
+        //     'barbershop_id' => 1,
+        //     'user_id' => 1,
+        // ]);
     }
 }
