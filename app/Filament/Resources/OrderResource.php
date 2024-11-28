@@ -38,21 +38,31 @@ class OrderResource extends Resource
                 TimePicker::make('order_time')
                     ->label('Order Time')
                     ->required(),
+                BelongsToSelect::make('user_id')
+                    ->label('Customer')
+                    ->relationship('user', 'username')
+                    ->required(),
                 TextInput::make('total_price')
                     ->label('Total Price')
                     ->numeric()
                     ->required(),
-                Select::make('status')
-                    ->label('Status')
-                    ->options([
-                        'on_process' => 'On Process',
-                        'finished' => 'Finished',
-                        'declined' => 'Canceled',
-                    ])
-                    ->required(),
-                BelongsToSelect::make('user_id')
-                    ->label('User')
-                    ->relationship('user', 'username')
+                // Select::make('status')
+                //     ->label('Status')
+                //     ->options([
+                //         'on_process' => 'On Process',
+                //         'finished' => 'Finished',
+                //         'declined' => 'Canceled',
+                //     ])
+                //     ->required(),
+                Select::make('service.name')
+                    ->label('Services')
+                    ->multiple()
+                    ->relationship('services', 'name')
+                    ->options(function () {
+                        return \App\Models\Service::all()->mapWithKeys(function ($service) {
+                            return [$service->id => "{$service->name} - Rp. {$service->price}"];
+                        })->toArray();
+                    })
                     ->required(),
             ]);
     }
@@ -69,14 +79,14 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Order Time'),
+                TextColumn::make('user.username')
+                    ->searchable()
+                    ->sortable()
+                    ->label('Customer'),
                 TextColumn::make('total_price')
                     ->searchable()
                     ->sortable()
                     ->label('Total Price'),
-                TextColumn::make('user.username')
-                    ->searchable()
-                    ->sortable()
-                    ->label('Username'),
                 BadgeColumn::make('status')
                     ->label('Status')
                     ->colors([
@@ -84,7 +94,6 @@ class OrderResource extends Resource
                         'success' => 'finished',
                         'danger' => 'declined',
                     ]),
-
             ])
             ->filters([
                 // Tambahkan filter di sini jika diperlukan
@@ -101,7 +110,6 @@ class OrderResource extends Resource
                     ->visible(fn($record) => $record->status !== 'finished'), // Hanya tampil jika status bukan 'finished'
 
                 ViewAction::make()->label('View Details'),
-
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
