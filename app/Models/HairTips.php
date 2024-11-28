@@ -8,7 +8,7 @@ class HairTips extends Model
 {
     protected $fillable = [
         'hair_type',
-        'characteristic',
+        'characteristic_hair',
         'description',
         'photo',
     ];

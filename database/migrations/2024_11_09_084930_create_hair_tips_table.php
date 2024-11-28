@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hair_tips', function (Blueprint $table) {
             $table->id();
             $table->string('hair_type');
-            $table->text('characteristic');
+            $table->text('characteristic_hair');
             $table->text('description');
             $table->text('photo');
             $table->timestamps();
