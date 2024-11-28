@@ -34,6 +34,13 @@ class Order extends Model
 
     public function services()
     {
-        return $this->hasMany(OrderDetail::class);
+        return $this->hasManyThrough(
+            Service::class,
+            OrderDetail::class,
+            'order_id', // Foreign key di tabel order_details
+            'id',        // Foreign key di tabel services
+            'id',        // Local key di tabel orders
+            'service_id' // Local key di tabel order_details
+        );
     }
 }
