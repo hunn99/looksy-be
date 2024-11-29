@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TipsController;
 use App\Http\Controllers\HistoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,5 @@ Route::middleware('auth:sanctum')->post('/orders', [OrderController::class, 'cre
 
 Route::middleware('auth:sanctum')->get('/history', [HistoryController::class, 'getHistory'])->name('getHistory');
 Route::middleware('auth:sanctum')->post('/history/cancel/{orderId}', [HistoryController::class, 'cancelOrder'])->name('cancelOrder');
+
+Route::get('/hair_tips', [TipsController::class, 'getHairTips'])->name('getHairTips');
