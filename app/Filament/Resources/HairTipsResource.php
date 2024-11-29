@@ -27,7 +27,7 @@ class HairTipsResource extends Resource
                 TextInput::make('hair_type')
                     ->label('Hair Type')
                     ->required(),
-                TextInput::make('characteristic')
+                TextInput::make('characteristic_hair')
                     ->label('Characteristic')
                     ->required(),
                 TextInput::make('description')
@@ -36,6 +36,7 @@ class HairTipsResource extends Resource
                 FileUpload::make('photo') // Use FileUpload for uploading images
                     ->label('Photo')
                     ->image() // Specifies that this field is for images
+                    ->directory('hair_tips') // Specify the directory where the images will be uploaded
                     ->required()
             ]);
     }
@@ -48,7 +49,7 @@ class HairTipsResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Hair Type'),
-                TextColumn::make('characteristic')
+                TextColumn::make('characteristic_hair')
                     ->searchable()
                     ->sortable()
                     ->label('Characteristic')

@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Hairlist extends Model
 {
     protected $fillable = [
-        'face_shape',
         'hairstyle',
-        'description',
+        'face_shape',
         'photo',
+        'characteristics',
+        'faceSuitability',
+        'maintenance',
+        'impression',
         'user_id',
     ];
 }
