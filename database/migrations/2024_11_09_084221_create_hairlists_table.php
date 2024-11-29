@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('hairlists', function (Blueprint $table) {
             $table->id();
-            $table->string('face_shape');
             $table->string('hairstyle');
-            $table->text('description');
+            $table->string('face_shape');
             $table->text('photo');
+            $table->text('characteristics');
+            $table->string('faceSuitability');
+            $table->string('maintenance');            
+            $table->string('impression');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
