@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('hair_type');
             $table->text('characteristic_hair');
             $table->text('description');
-            $table->text('photo');
+            $table->string('photo');
             $table->timestamps();
         });
     }
