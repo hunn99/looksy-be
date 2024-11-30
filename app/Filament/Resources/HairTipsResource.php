@@ -36,7 +36,7 @@ class HairTipsResource extends Resource
                 FileUpload::make('photo') // Use FileUpload for uploading images
                     ->label('Photo')
                     ->image() // Specifies that this field is for images
-                    ->directory('hair_tips') // Specify the directory where the images will be uploaded
+                    // ->directory('hair_tips') // Specify the directory where the images will be uploaded
                     ->required()
             ]);
     }
@@ -59,7 +59,9 @@ class HairTipsResource extends Resource
                     ->sortable()
                     ->label('Description')
                     ->limit(50),
-                ImageColumn::make('photo') // Use ImageColumn for displaying the image
+                ImageColumn::make('photo') // Use ImageColumn for displaying the
+                    ->width(100)
+                    ->height(100)
                     ->searchable()
                     ->sortable()
                     ->label('Photo'),
