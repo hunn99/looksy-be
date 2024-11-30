@@ -32,7 +32,7 @@ class Order extends Model
         return $this->belongsTo(Barbershop::class);
     }
 
-    public function services()
+    public function service()
     {
         return $this->hasManyThrough(
             Service::class,
@@ -42,5 +42,10 @@ class Order extends Model
             'id',        // Local key di tabel orders
             'service_id' // Local key di tabel order_details
         );
+    }
+
+    public function services()
+    {
+        return $this->hasMany(OrderDetail::class);
     }
 }
