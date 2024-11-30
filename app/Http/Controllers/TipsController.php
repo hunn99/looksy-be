@@ -18,13 +18,8 @@ class TipsController extends Controller
     {
         try {
             // Ambil data dari tabel hair_tips
-            $hairTips = HairTips::select('hair_type', 'characteristic_hair', 'description', 'photo')
-                ->get()
-                ->map(function ($tip) {
-                    $tip->photo = $tip->photo ? asset('storage/hair_tips/' . $tip->photo) : null;
-                    return $tip;
-                });
-            
+            $hairTips = HairTips::select('hair_type', 'characteristic_hair', 'description', 'photo')->get();
+
             // Jika tidak ada data, kembalikan pesan bahwa data kosong
             if ($hairTips->isEmpty()) {
                 return WebResponseUtils::base([], 'No hair tips found', 200);
