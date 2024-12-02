@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->post('/orders', [OrderController::class, 'cre
 Route::middleware('auth:sanctum')->get('/history', [HistoryController::class, 'getHistory'])->name('getHistory');
 Route::middleware('auth:sanctum')->post('/history/cancel/{orderId}', [HistoryController::class, 'cancelOrder'])->name('cancelOrder');
 
-Route::get('/hair_tips', [TipsController::class, 'getHairTips'])->name('getHairTips');
+Route::middleware('auth:sanctum')->get('/tips', [TipsController::class, 'getHairTips'])->name('getHairTips');
