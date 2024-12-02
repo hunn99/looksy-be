@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TipsController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\ApiMiddleware;
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/history', [HistoryController::class, 'g
 Route::middleware('auth:sanctum')->post('/history/cancel/{orderId}', [HistoryController::class, 'cancelOrder'])->name('cancelOrder');
 
 Route::middleware('auth:sanctum')->get('/tips', [TipsController::class, 'getHairTips'])->name('getHairTips');
+
+Route::middleware('auth:sanctum')->post('/update-profile', [UserController::class, 'updateProfile'])->name('updateProfile');
