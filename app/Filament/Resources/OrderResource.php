@@ -55,9 +55,9 @@ class OrderResource extends Resource
                 //     ])
                 //     ->required(),
                 Select::make('service.name')
-                    ->label('Services')
+                    ->label('Service')
                     ->multiple()
-                    ->relationship('services', 'name')
+                    ->relationship('service', 'name')
                     ->options(function () {
                         return \App\Models\Service::all()->mapWithKeys(function ($service) {
                             return [$service->id => "{$service->name} - Rp. {$service->price}"];
@@ -92,7 +92,7 @@ class OrderResource extends Resource
                     ->colors([
                         'primary' => 'on_process',
                         'success' => 'finished',
-                        'danger' => 'declined',
+                        'danger' => 'canceled',
                     ]),
             ])
             ->filters([

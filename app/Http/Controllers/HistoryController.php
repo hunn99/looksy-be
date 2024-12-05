@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 
@@ -15,14 +16,28 @@ class HistoryController extends Controller
 
             $orders = Order::with(['orderDetails.service'])
                 ->where('user_id', $user->id)
+                ->orderBy('id', 'desc')
                 ->get()
                 ->map(function ($order) {
                     return [
                         'id' => $order->id,
-                        'services' => $order->orderDetails->map(fn ($detail) => $detail->service->name)->join(', '),
-                        'date' => $order->order_date,
-                        'time' => $order->order_time,
-                        'price' => 'Rp. ' . number_format($order->total_price, 0, ',', '.'),
+                        'services' => $order->orderDetails->map(function ($detail) {
+                            return [
+                                'id' => $detail->id,
+                                'order_id' => $detail->order_id,
+                                'service_id' => $detail->service_id,
+                                'created_at' => $detail->created_at,
+                                'updated_at' => $detail->updated_at,
+                                'service' => [
+                                    'id' => $detail->service->id,
+                                    'name' => $detail->service->name,
+                                    'price' => $detail->service->price,
+                                ],
+                            ];
+                        }),
+                        'order_date' => $order->order_date,
+                        'order_time' => $order->order_time,
+                        'total_price' => $order->total_price,
                         'status' => ucfirst($order->status),
                         'cancelable' => $order->status === 'on process',
                     ];
@@ -63,5 +78,4 @@ class HistoryController extends Controller
             return response()->json(['message' => $e->getMessage()], 500);
         }
     }
-
 }
