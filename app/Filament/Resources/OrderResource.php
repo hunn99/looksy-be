@@ -107,7 +107,7 @@ class OrderResource extends Resource
                     ->action(function ($record) {
                         $record->update(['status' => 'finished']);
                     })
-                    ->visible(fn($record) => $record->status !== 'finished'), // Hanya tampil jika status bukan 'finished'
+                    ->visible(fn($record) => !in_array($record->status, ['finished', 'canceled'])), // Hanya tampil jika status bukan 'finished'
 
                 ViewAction::make()->label('View Details'),
             ])
