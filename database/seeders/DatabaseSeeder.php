@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ServiceSeeder::class);
         $this->call(HairTipsSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(HairstylesSeeder::class);
         $this->call(HairlistSeeder::class);
-
     }
 }
