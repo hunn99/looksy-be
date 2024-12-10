@@ -21,7 +21,7 @@ class HairTipsSeeder extends Seeder
             For extra moisture, try co-washing by occasionally using a curl-specific conditioner as a gentle cleanser instead of shampoo. Upgrade your styling products to lightweight options like curl serums or mousses that define curls without causing buildup or stiffness. Dry your hair naturally or use a diffuser to add volume while avoiding heat damage.
 
             Incorporate deep conditioning into your weekly routine to provide the hydration curls need. Additional care tips include using a microfiber towel to reduce friction, a wide-tooth comb for detangling, and sleeping on a silk or satin pillowcase to minimize breakage and preserve curl structure overnight. With the right care routine, your curls will look defined, soft, and healthy every day.',
-            'photo' => 'public\storage\hair_tips\Curly.jpg',
+            'photo' => '/hair_tips/Curly.jpg',
         ]);
         HairTips::create([
             'hair_type' => 'Frizzy',
@@ -31,7 +31,7 @@ class HairTipsSeeder extends Seeder
             Styling methods also play a crucial role. Avoid tight hairstyles, embrace your natural textures, and opt for alcohol-free gels or touch-up creams to tame frizz effectively. Incorporate hair oils such as coconut or argan oil into your routine to hydrate your hair and reduce flyaways. To prevent damage, limit heat exposure, wash your hair less frequently, and trim regularly to avoid split ends and dryness.
 
             Investing in frizz-fighting products like anti-frizz serums, leave-in conditioners, and frizz-fighting gels can help control your hair`s texture and make it smoother. By following these steps, you can minimize frizz and enjoy healthier, more manageable hair.',
-            'photo' => 'public\storage\hair_tips\Frizzy.jpg',
+            'photo' => '/hair_tips/Frizzy.jpg',
         ]);
         HairTips::create([
             'hair_type' => 'Straight',
@@ -41,7 +41,7 @@ class HairTipsSeeder extends Seeder
             For styling, use lightweight products such as pomades for a polished look. After air-drying, use a blow dryer with cool air to set and straighten your hair. To protect your hair overnight, wrap it before bed to minimize friction and maintain its straightness.
 
             Avoid exposing your hair to chlorine, as it can dry and damage straight hair. Before swimming, wet your hair and apply a layer of conditioner to protect it. For a stylish look, consider trying a slick back undercut, which complements straight hair and provides a sharp, manageable style.',
-            'photo' => 'public\storage\hair_tips\Straight.jpg',
+            'photo' => '/hair_tips/Straight.jpg',
         ]);
         HairTips::create([
             'hair_type' => 'Wavy',
@@ -51,7 +51,7 @@ class HairTipsSeeder extends Seeder
             When styling, use a wide-tooth comb to set the curls and shape your hair with your fingers. Avoid pulling your hair, as this can lead to frizz. To preserve your waves, avoid tight hairstyles that flatten the natural volume of your hair.
 
             Using moisturizing products is key to keeping your waves hydrated and defined. Opt for moisturizing shampoos, conditioners, and styling products that nourish and enhance your natural texture.',
-            'photo' => 'public\storage\hair_tips\Wavy.jpg',
+            'photo' => '/hair_tips/Wavy.jpg',
         ]);
     }
 }
