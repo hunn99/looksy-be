@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hairlists', function (Blueprint $table) {
+        Schema::create('hair_styles', function (Blueprint $table) {
             $table->id();
             $table->string('hairstyle');
             $table->string('face_shape');
-            $table->text('photo');
+            $table->string('photo');
             $table->text('characteristics');
-            $table->string('faceSuitability');
-            $table->string('maintenance');            
-            $table->string('impression');
-            $table->foreignId('user_id')->constrained('users');
+            $table->text('faceSuitability');
+            $table->text('maintenance');
+            $table->text('impression');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hairlists');
+        Schema::dropIfExists('hairstyle');
     }
 };

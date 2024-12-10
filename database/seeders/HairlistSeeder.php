@@ -14,17 +14,8 @@ class HairlistSeeder extends Seeder
     public function run(): void
     {
         Hairlist::create([
-            'hairstyle' => 'Pompadour',
-            'face_shape' => 'Oval',
-            'photo' => 'pompadour.jpg',
-            'characteristics' => 'Volume tinggi di bagian atas.',
-            'faceSuitability' => 'Cocok untuk wajah oval atau persegi.',
-            'maintenance' => 'Rendah hingga sedang.',
-            'impression' => 'Elegan dan modern.',
+            'hairstyle_id' => 1,
             'user_id' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
-            // Tambahkan data lainnya jika perlu
         ]);
     }
 }
