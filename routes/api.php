@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HairstyleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TipsController;
@@ -23,5 +24,6 @@ Route::middleware('auth:sanctum')->get('/history', [HistoryController::class, 'g
 Route::middleware('auth:sanctum')->post('/history/cancel/{orderId}', [HistoryController::class, 'cancelOrder'])->name('cancelOrder');
 
 Route::middleware('auth:sanctum')->get('/tips', [TipsController::class, 'getHairTips'])->name('getHairTips');
-
 Route::middleware('auth:sanctum')->post('/update-profile', [UserController::class, 'updateProfile'])->name('updateProfile');
+
+Route::middleware('auth:sanctum')->post('/hairstyle-recommendation', [HairstyleController::class, 'hairstyleRecommendation'])->name('hairstyleRecommendation');
