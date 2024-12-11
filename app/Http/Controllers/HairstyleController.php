@@ -35,6 +35,6 @@ class HairstyleController extends Controller
                 ];
             });
 
-        return response()->json(['message' => 'Orders retrieved successfully', 'data' => $hairstyles], 200);
+        return response()->json(['message' => 'Recommendation retrieved successfully', 'data' => $hairstyles], 200);
     }
 }
