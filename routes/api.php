@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HairlistController;
 use App\Http\Controllers\HairstyleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
@@ -27,3 +28,5 @@ Route::middleware('auth:sanctum')->get('/tips', [TipsController::class, 'getHair
 Route::middleware('auth:sanctum')->post('/update-profile', [UserController::class, 'updateProfile'])->name('updateProfile');
 
 Route::middleware('auth:sanctum')->post('/hairstyle-recommendation', [HairstyleController::class, 'hairstyleRecommendation'])->name('hairstyleRecommendation');
+Route::middleware('auth:sanctum')->post('/save-hairlist', [HairlistController::class, 'store'])->name('store');
+Route::middleware('auth:sanctum')->get('/get-hairlist', [HairlistController::class, 'getListSaved'])->name('getListSaved');
