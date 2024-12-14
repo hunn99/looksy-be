@@ -10,4 +10,9 @@ class Hairlist extends Model
         'hairstyle_id',
         'user_id',
     ];
+
+    public function hairstyle()
+    {
+        return $this->belongsTo(HairStyle::class, 'hairstyle_id');
+    }
 }
