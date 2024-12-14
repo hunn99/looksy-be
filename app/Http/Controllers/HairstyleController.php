@@ -25,6 +25,7 @@ class HairstyleController extends Controller
             ->get()
             ->map(function ($hairstyles) {
                 return [
+                    'id' => $hairstyles->id,
                     'hair_style' => $hairstyles->hairstyle,
                     'face_shape' => $hairstyles->face_shape,
                     'photo' =>  env('APP_URL') . $hairstyles->photo,
