@@ -53,7 +53,7 @@ class HairstylesSeeder extends Seeder
         HairStyle::create([
             'hairstyle' => 'Undercut',
             'face_shape' => 'Square',
-            'photo' => '/assets/square/undercutt.jpeg',
+            'photo' => '/assets/square/undercut.jpeg',
             'characteristics' => 'Features very short or shaved sides with longer hair on top, which can be styled in various ways like slicked back, textured, or spiked.',
             'faceSuitability' => 'Highlights the strong jawline of square faces while adding contrast to the structured look.',
             'maintenance' => 'Moderate upkeep—styling the top requires product, and the sides need regular trims to maintain the sharp contrast.',
