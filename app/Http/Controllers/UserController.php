@@ -15,19 +15,19 @@ class UserController extends Controller
             'email' => 'required|email|max:255',
             'profile_image' => 'nullable|image|max:2048',
         ]);
-    
+
         // Cari user berdasarkan token (misalnya)
         /**
          * @var User $user
          */
         $user = Auth::user();
 
-    
+
         // Update data user
         if ($user) {
             $user->username = $validated['username'];
             $user->email = $validated['email'];
-            
+
             // Cek jika ada file gambar
             if ($request->hasFile('profile_image')) {
                 // Simpan file gambar ke direktori 'profile_images' di storage
@@ -35,14 +35,14 @@ class UserController extends Controller
                 $user->profile_image = $path;
             }
         }
-        
+
         $user->save();
-    
+
         return response()->json([
             'message' => 'Profile updated successfully',
             'user' => $user,
         ], 200);
 
         return response()->json(['error' => 'User not found'], 404);
-    }    
+    }
 }

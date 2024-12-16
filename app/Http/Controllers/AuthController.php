@@ -22,7 +22,7 @@ class AuthController extends Controller
             // Validasi input
             $validateData = Validator::make($credentials, [
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|string|min:6',
+                'password' => 'required|string|min:8',
                 'username' => 'required|string'
             ]);
 
