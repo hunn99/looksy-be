@@ -32,7 +32,7 @@ class HairlistController extends Controller
             'message' => 'Hairstyle saved successfully!',
             'data' => [
                 'id' => $response->id,
-                'hairstyle' => $response->hairstyle,
+                'hair_style' => $response->hairstyle,
                 'face_shape' => $response->face_shape,
                 'photo' =>  $response->photo,
                 'characteristics' => $response->characteristics,
@@ -47,6 +47,7 @@ class HairlistController extends Controller
     {
         $userId = Auth::user()->id; // Get the current authenticated user's ID
         $hairlist = Hairlist::where('user_id', $userId)
+            ->orderBy('id', 'desc')
             ->with('hairstyle')  // To include related hairstyle information
             ->get();
 
@@ -54,7 +55,7 @@ class HairlistController extends Controller
         $hairstyles = $hairlist->map(function ($item) {
             return [
                 'id' => $item->hairstyle->id,
-                'hairstyle' => $item->hairstyle->hairstyle,
+                'hair_style' => $item->hairstyle->hairstyle,
                 'face_shape' => $item->hairstyle->face_shape,
                 'photo' =>  env('APP_URL') . $item->hairstyle->photo,
                 'characteristics' => $item->hairstyle->characteristics,

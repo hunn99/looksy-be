@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'Satria',
             'email' => 'satria@gmail.com',
-            'password' => bcrypt('123456'),
-            'photo' => null,
+            'password' => bcrypt('12345678'),
+            'photo' => '/assets/image/Avatar.png',
         ]);
 
         $this->call(BarbershopSeeder::class);

@@ -14,16 +14,16 @@ class ServiceSeeder extends Seeder
     public function run(): void
     {
         $services = [
-            ['name' => 'Hair cut', 'price' => 1000, 'barbershop_id' => 1],
-            ['name' => 'Nail Trim', 'price' => 500, 'barbershop_id' => 1],
-            ['name' => 'Shave', 'price' => 700, 'barbershop_id' => 1],
-            ['name' => 'Facial', 'price' => 1500, 'barbershop_id' => 1],
-            ['name' => 'Massage', 'price' => 2000, 'barbershop_id' => 1],
-            ['name' => 'Pedicure', 'price' => 1200, 'barbershop_id' => 1],
-            ['name' => 'Hair Coloring', 'price' => 2500, 'barbershop_id' => 1],
-            ['name' => 'Hair Treatment', 'price' => 1800, 'barbershop_id' => 1],
-            ['name' => 'Blow Dry', 'price' => 800, 'barbershop_id' => 1],
-            ['name' => 'Waxing', 'price' => 500, 'barbershop_id' => 1],
+            ['name' => 'Reguler Haircut', 'price' => 20000, 'barbershop_id' => 1],
+            ['name' => 'Premium Haircut', 'price' => 40000, 'barbershop_id' => 1],
+            ['name' => 'Beard Trim', 'price' => 15000, 'barbershop_id' => 1],
+            ['name' => 'Pomping', 'price' => 20000, 'barbershop_id' => 1],
+            ['name' => 'Hair Colour', 'price' => 135000, 'barbershop_id' => 1],
+            ['name' => 'Fashion Colour', 'price' => 300000, 'barbershop_id' => 1],
+            ['name' => 'Bleach', 'price' => 50000, 'barbershop_id' => 1],
+            ['name' => 'Dread Lock', 'price' => 700000, 'barbershop_id' => 1],
+            ['name' => 'Hair Perm', 'price' => 300000, 'barbershop_id' => 1],
+            ['name' => 'Cornrow', 'price' => 500000, 'barbershop_id' => 1],
         ];
 
         foreach ($services as $service) {
